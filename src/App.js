@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import {Carousel} from 'antd';
+import { useState } from 'react';
+
+
+export default function App() {
+  
+  const [dotPosition, setDotPosition] = useState('top');
+
+  const handlePositionChange = ({ target: { value } }) => {
+    setDotPosition(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <Carousel dotPosition={dotPosition}>
+              <img width='100%' src={process.env.PUBLIC_URL + '/ilustraciones/1.jpg'} alt="imagen 1" />
+              <img width='100%' src={process.env.PUBLIC_URL + '/ilustraciones/2.png'} alt="imagen 1" />
+              <img width='100%' src={process.env.PUBLIC_URL + '/ilustraciones/3.jpg'} alt="imagen 1" />
+              <img width='100%' src={process.env.PUBLIC_URL + '/ilustraciones/4.jpg'} alt="imagen 1" /> 
+      </Carousel>
+
+
+
+    </>
   );
 }
-
-export default App;
+ 
